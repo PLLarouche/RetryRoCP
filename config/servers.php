@@ -4,7 +4,7 @@ return array(
 	// specify multiple server groups (however they should share the same login
 	// server whilst they are allowed to have multiple char/map pairs).
 	array(
-		'ServerName'     => 'FluxRO',
+		'ServerName'     => 'RetryRO',
 		// Global database configuration (excludes logs database configuration).
 		'DbConfig'       => array(
 			//'Socket'     => '/tmp/mysql.sock',
@@ -13,10 +13,10 @@ return array(
 			'Convert'    => 'utf8',
 				// -- 'Convert' option only works when 'Encoding' option is specified and iconv (http://php.net/iconv) is available.
 				// -- It specifies the encoding to convert your MySQL data to on the website (most likely needs to be utf8)
-			'Hostname'   => '127.0.0.1',
-			'Username'   => 'ragnarok',
-			'Password'   => 'ragnarok',
-			'Database'   => 'ragnarok',
+			'Hostname'   => 'localhost',
+			'Username'   => 'fluxcp',
+			'Password'   => 'ShsRdhDKrwhMfnAP',
+			'Database'   => 'ragserver',
 			'Persistent' => true,
 			'Timezone'   => null // Example: '+0:00' is UTC.
 			// The possible values of 'Timezone' is as documented from the MySQL website:
@@ -34,89 +34,89 @@ return array(
 			'Convert'    => 'utf8',
 				// -- 'Convert' option only works when 'Encoding' option is specified and iconv (http://php.net/iconv) is available.
 				// -- It specifies the encoding to convert your MySQL data to on the website (most likely needs to be utf8)
-			'Hostname'   => '127.0.0.1',
-			'Username'   => 'ragnarok',
-			'Password'   => 'ragnarok',
-			'Database'   => 'ragnarok',
+			'Hostname'   => 'localhost',
+			'Username'   => 'fluxcp',
+			'Password'   => 'ShsRdhDKrwhMfnAP',
+			'Database'   => 'log',
 			'Persistent' => true,
 			'Timezone'   => null // Possible values is as described in the comment in DbConfig.
 		),
 		// Web server configuration.
 		'WebDbConfig'    => array(
-			'Hostname'   => '127.0.0.1',
-			'Username'   => 'ragnarok',
-			'Password'   => 'ragnarok',
-			'Database'   => 'ragnarok',
+			'Hostname'   => 'localhost',
+			'Username'   => 'fluxcp',
+			'Password'   => 'ShsRdhDKrwhMfnAP',
+			'Database'   => 'web',
 			'Persistent' => true
 		),
 		// Login server configuration.
 		'LoginServer'    => array(
-			'Address'  => '127.0.0.1',
+			'Address'  => '155.248.227.88',
 			'Port'     => 6900,
-			'UseMD5'   => false,
+			'UseMD5'   => true,
 			'NoCase'   => true, // rA account case-sensitivity; Default: Case-INsensitive (true).
 			'GroupID'  => 0,    // Default account group ID during registration.
 			//'Database' => 'ragnarok'
 		),
 		'CharMapServers' => array(
 			array(
-				'ServerName'      => 'FluxRO',
+				'ServerName'      => 'RetryRO',
 				'Renewal'         => true,
 				'MaxCharSlots'    => 9,
 				'DateTimezone'    => null, // Specifies game server's timezone for this char/map pair. (See: http://php.net/timezones)
 				//'ResetDenyMaps'   => 'sec_pri', // Defaults to 'sec_pri'. This value can be an array of map names.
 				//'Database'        => 'ragnarok', // Defaults to DbConfig.Database
 				'ExpRates' => array(
-					'Base'        => 100, // Rate at which (base) exp is given
-					'Job'         => 100, // Rate at which job exp is given
-					'Mvp'         => 100  // MVP bonus exp rate
+					'Base'        => 800, // Rate at which (base) exp is given
+					'Job'         => 800, // Rate at which job exp is given
+					'Mvp'         => 800  // MVP bonus exp rate
 				),
 				'DropRates' => array(
 					// If drop rate was below this amount and bonus is applied to it, the bonus can't make it exceed this amount.
 					'DropRateCap' => 9000,
 					// The rate the common items (in the ETC tab, besides card) are dropped
-					'Common'      => 100,
-					'CommonBoss'  => 100,
-					'CommonMVP'   => 100,
+					'Common'      => 300,
+					'CommonBoss'  => 300,
+					'CommonMVP'   => 200,
 					'CommonMin'   => 1,
 					'CommonMax'   => 10000,
 					// The rate healing items (that restore HP or SP) are dropped
-					'Heal'        => 100,
-					'HealBoss'    => 100,
-					'HealMVP'     => 100,
+					'Heal'        => 300,
+					'HealBoss'    => 300,
+					'HealMVP'     => 200,
 					'HealMin'     => 1,
 					'HealMax'     => 10000,
 					// The rate usable items (in the item tab other then healing items) are dropped
-					'Useable'     => 100,
-					'UseableBoss' => 100,
-					'UseableMVP'  => 100,
+					'Useable'     => 300,
+					'UseableBoss' => 300,
+					'UseableMVP'  => 200,
 					'UseableMin'  => 1,
 					'UseableMax'  => 10000,
 					// The rate at which equipment is dropped
-					'Equip'       => 100,
-					'EquipBoss'   => 100,
-					'EquipMVP'    => 100,
+					'Equip'       => 300,
+					'EquipBoss'   => 200,
+					'EquipMVP'    => 200,
 					'EquipMin'    => 1,
 					'EquipMax'    => 10000,
 					// The rate at which cards are dropped
-					'Card'        => 100,
-					'CardBoss'    => 100,
-					'CardMVP'     => 100,
+					'Card'        => 300,
+					'CardBoss'    => 200,
+					'CardMVP'     => 200,
 					'CardMin'     => 1,
 					'CardMax'     => 10000,
 					// The rate adjustment for the MVP items that the MVP gets directly in their inventory
-					'MvpItem'     => 100,
+					'MvpItem'     => 200,
 					'MvpItemMin'  => 1,
 					'MvpItemMax'  => 10000,
 					// 0 - official order (Show message "Note: Only one MVP drop will be rewarded.") , 2 - all items
 					'MvpItemMode' => 0,
 				),
 				'CharServer'      => array(
-					'Address'     => '127.0.0.1',
+					'Address'     => '155.248.227.88',
 					'Port'        => 6121
 				),
 				'MapServer'       => array(
-					'Address'     => '127.0.0.1',
+					'Address'     => '155.248.227.88',
 					'Port'        => 5121
 				),
 				// -- WoE days and times --
